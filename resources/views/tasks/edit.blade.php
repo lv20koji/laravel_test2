@@ -19,8 +19,9 @@
               </div>
             @endif
             <form
-                action="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id]) }}"
-                method="POST"
+            action="{{ route('tasks.edit', ['folder' => $task->folder_id, 'task_id' => $task->id]) }}"
+            {{-- action="{{ route('tasks.edit', ['folder' => 13, 'task_id' => $task]) }}" --}}
+            method="POST"
             >
               @csrf
               <div class="form-group">
@@ -60,3 +61,4 @@
 @section('scripts')
     @include('share.flatpickr.scripts')
 @endsection
+
