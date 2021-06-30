@@ -13,12 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// URLのfolderidが正しいかの確認
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::get('/folders/create', 'FolderController@showCreateForm')->name('folders.create');
     Route::post('/folders/create', 'FolderController@create');
 
+    // ユーザーの権限チェック
     Route::group(['middleware' => 'can:view,folder'], function() {
         Route::get('/folders/{folder}/destroy', 'FolderController@destroy')->name('folders.delete');
 

@@ -44,3 +44,11 @@ a.my-navbar-item:hover {
 .form-control[readonly] {
   background-color: #fff;
 }
+
+.list-group-item.trash:hover {
+    background-color: #e74c3c
+  }
+
+  .list-group-item.active.trash:hover {
+    background-color: #e74c3c
+  }

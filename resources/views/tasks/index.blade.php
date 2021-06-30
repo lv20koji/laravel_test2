@@ -35,9 +35,9 @@
                         <td top="10px" width="10%">
                             <a
                             href="{{ route('folders.delete', ['folder' => $folder->id]) }}"
-                            class="list-group-item {{ $current_folder_id === $folder->id ? 'active' : '' }}"
+                            class="list-group-item {{ $current_folder_id === $folder->id ? 'active' : '' }} trash"
                             >
-                                〼
+                            🗑️
                             </a>
                         </td>
                     </tr>
