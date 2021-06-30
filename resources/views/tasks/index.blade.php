@@ -12,14 +12,37 @@
             </a>
           </div>
           <div class="list-group">
-            @foreach($folders as $folder)
+            {{-- @foreach($folders as $folder)
               <a
                   href="{{ route('tasks.index', ['folder' => $folder->id]) }}"
                   class="list-group-item {{ $current_folder_id === $folder->id ? 'active' : '' }}"
               >
                 {{ $folder->title }}
               </a>
-            @endforeach
+            @endforeach --}}
+
+                @foreach($folders as $folder)
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <a
+                            href="{{ route('tasks.index', ['folder' => $folder->id]) }}"
+                            class="list-group-item {{ $current_folder_id === $folder->id ? 'active' : '' }}"
+                            >
+                                {{ $folder->title }}
+                            </a>
+                        </td>
+                        <td top="10px" width="10%">
+                            <a
+                            href="{{ route('folders.delete', ['folder' => $folder->id]) }}"
+                            class="list-group-item {{ $current_folder_id === $folder->id ? 'active' : '' }}"
+                            >
+                                〼
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                @endforeach
           </div>
         </nav>
       </div>

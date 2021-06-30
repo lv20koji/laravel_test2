@@ -32,4 +32,11 @@ class FolderController extends Controller
             'folder' => $folder->id,
         ]);
     }
+
+    public function destroy(Folder $folder){
+
+        $deleteid = $folder->id;
+        Folder::destroy($deleteid);
+        return redirect()->route('home');
+    }
 }

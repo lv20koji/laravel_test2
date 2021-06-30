@@ -73,7 +73,6 @@ class TaskController extends Controller
         return redirect()->route('tasks.index', [
             'folder' => $folder->id,
         ]);
-        //test
     }
 
     /**
