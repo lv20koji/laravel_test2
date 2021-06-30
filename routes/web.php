@@ -22,7 +22,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     // ユーザーの権限チェック
     Route::group(['middleware' => 'can:view,folder'], function() {
-        Route::get('/folders/{folder}/destroy', 'FolderController@destroy')->name('folders.delete');
+        Route::get('/folders/{folder}/delete', 'FolderController@delete')->name('folders.delete');
 
         Route::get('/folders/{folder}/tasks', 'TaskController@index')->name('tasks.index');
 

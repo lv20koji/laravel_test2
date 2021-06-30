@@ -85,7 +85,15 @@
         </div>
       </div>
     </div>
-
+    @if ($errors->any())
+        <div class="card-text text-left alert alert-danger">
+            <ul class="mb-0">
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="text-center">
     {{-- パス再設定項目 --}}
     <a href="{{ route('password.update') }}">パスワードの変更はこちらから</a>
