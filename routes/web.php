@@ -20,6 +20,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/folders/create', 'FolderController@showCreateForm')->name('folders.create');
     Route::post('/folders/create', 'FolderController@create');
 
+    Route::get('/folders/{folder}/edit', 'FolderController@showEditForm')->name('folders.edit');
+    Route::post('/folders/{folder}/edit', 'FolderController@edit');
+
     // ユーザーの権限チェック
     Route::group(['middleware' => 'can:view,folder'], function() {
         Route::get('/folders/{folder}/delete', 'FolderController@delete')->name('folders.delete');

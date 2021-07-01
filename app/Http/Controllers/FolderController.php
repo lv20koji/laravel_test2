@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Folder;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateFolder;
+use App\Http\Requests\EditFolder;
 use App\Models\Task;
 // ★ Authクラスをインポートする
 use Illuminate\Support\Facades\Auth;
@@ -51,4 +52,38 @@ class FolderController extends Controller
         Folder::destroy($deleteid);
         return redirect()->route('home');
     }
+
+    /**
+     * フォルダー編集フォーム
+     * @param Folder $folder
+     * @return \Illuminate\View\View
+     */
+    public function showEditForm(Folder $folder)
+    {
+        Log::info ("エディットフォーム");
+
+        return view('folders.edit', [
+            'folder' => $folder,
+        ]);
+    }
+
+    /**
+     * フォルダー編集
+     * @param Folder $folder
+     * @param EditFolder $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function edit(Folder $folder, EditFolder $request)
+    {
+
+        Log::debug("フォルダーエディット");
+
+        $folder->title = $request->title;
+        $folder->save();
+
+        return redirect()->route('tasks.index', [
+            'folder' => $folder->id,
+        ]);
+    }
+
 }

@@ -21,10 +21,10 @@ class FolderPolicy
 
         // Log::info ("folderUser :" .$folderUser);
         // Log::info ($folderUser === 5);
-        // Log::info ($user->id === 5);
+        Log::info ($user->id);
 
         // Log::info ($user);
-        // Log::info ($folder);
+        Log::info ($folder->user_id);
         // Log::info ($folder->title);
         // Log::info ($folder->title === "テスト");
 
@@ -33,6 +33,6 @@ class FolderPolicy
 
 
         // return $user->id === $folder_userid;
-        return $user->id === (int)$folder->user_id;
+        return $user->id == $folder->user_id;
     }
 }
