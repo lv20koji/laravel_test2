@@ -32,7 +32,15 @@
                                 {{ $folder->title }}
                             </a>
                         </td>
-                        <td top="10px" width="10%">
+                        <td class="icon">
+                            <a
+                            href="{{ route('folders.delete', ['folder' => $folder->id]) }}"
+                            class="list-group-item {{ $current_folder_id === $folder->id ? 'active' : '' }} trash"
+                            >
+                            📝
+                            </a>
+                        </td>
+                        <td class="icon">
                             <a
                             href="{{ route('folders.delete', ['folder' => $folder->id]) }}"
                             class="list-group-item {{ $current_folder_id === $folder->id ? 'active' : '' }} trash"
@@ -63,6 +71,7 @@
               <th>状態</th>
               <th>期限</th>
               <th></th>
+              <th></th>
             </tr>
             </thead>
             <tbody>
@@ -73,9 +82,14 @@
                   <span class="label {{ $task->status_class }}">{{ $task->status_label }}</span>
                 </td>
                 <td>{{ $task->formatted_due_date }}</td>
-                <td>
+                <td class="icon">
                   <a href="{{ route('tasks.edit', ['folder' => $task->folder_id, 'task_id' => $task->id]) }}">
-                    編集
+                    📝
+                  </a>
+                </td>
+                <td class="icon">
+                  <a href="{{ route('tasks.delete', ['folder' => $task->folder_id, 'task_id' => $task->id]) }}">
+                    🗑️
                   </a>
                 </td>
               </tr>

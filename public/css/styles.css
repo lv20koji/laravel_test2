@@ -46,9 +46,17 @@ a.my-navbar-item:hover {
 }
 
 .list-group-item.trash:hover {
-    background-color: #e74c3c
+    background-color: #e74c3c;
   }
 
   .list-group-item.active.trash:hover {
-    background-color: #e74c3c
+    background-color: #e74c3c;
   }
+
+.icon{
+    width:10%;
+}
+
+.icon:hover{
+    background-color: #e74c3c;
+}
