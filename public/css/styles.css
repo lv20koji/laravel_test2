@@ -53,10 +53,9 @@ a.my-navbar-item:hover {
     background-color: #e74c3c;
   }
 
-.icon{
-    width:10%;
-}
-
+  .icon {
+    width:5%;
+  }
 .icon:hover{
     background-color: #e74c3c;
 }
